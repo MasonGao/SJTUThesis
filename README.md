@@ -1,11 +1,25 @@
 # 上海交通大学学位论文模板
 
 [![Build Status](https://travis-ci.org/sjtug/SJTUThesis.svg?branch=master)](https://travis-ci.org/sjtug/SJTUThesis)
+[![Build status](https://ci.appveyor.com/api/projects/status/9026p23k53dt2607/branch/master?svg=true)](https://ci.appveyor.com/project/SJTUG/sjtuthesis/branch/master)
 [![GitHub Release](https://img.shields.io/github/release/sjtug/SJTUThesis.svg)](https://github.com/sjtug/SJTUThesis/releases)
 [![GitHub Release Date](https://img.shields.io/github/release-date/sjtug/SJTUThesis.svg)](https://github.com/sjtug/SJTUThesis/releases)
 [![Join the chat at https://gitter.im/sjtug/SJTUThesis](https://badges.gitter.im/sjtug/SJTUThesis.svg)](https://gitter.im/sjtug/SJTUThesis?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-这是为撰写上海交通大学学士、硕士或博士论文而准备的 XeLaTeX 模板，非官方出品。生成的学位论文文件参见 [README.pdf][README]，详细使用说明参见 [SJTUThesis Wiki](https://github.com/sjtug/SJTUThesis/wiki)。
+这是为撰写上海交通大学学士、硕士、博士学位论文或课程论文而准备的 XeLaTeX 模板，非官方出品。生成的学位论文文件参见 [README.pdf][README]，详细使用说明参见 [SJTUThesis Wiki](https://github.com/sjtug/SJTUThesis/wiki)。
+
+## 封面展示
+
+<div align="center">
+    <a href="http://sjtug.org/SJTUThesis/bachelor.pdf"><img src="./docs/images/bachelor.png" height="330"></a>
+    <a href="http://sjtug.org/SJTUThesis/coursepaper.pdf"><img src="./docs/images/coursepaper.png" height="330"></a>
+</div>
+
+<div align="center">
+    <a href="http://sjtug.org/SJTUThesis/master.pdf"><img src="./docs/images/master.png" height="305"></a>
+    <a href="http://sjtug.org/SJTUThesis/doctor.pdf"><img src="./docs/images/doctor.png" height="305"></a>
+</div>
+
 
 ## 如何使用
 
@@ -39,6 +53,42 @@ SJTUThesis 共有三种编译方式支持:
 docker pull quay.io/sjtug/sjtuthesis
 ./scripts/start-build.sh
 ```
+
+## Makefile 使用
+
+### 编译生成学位论文 PDF 文件
+
+通过以下指令，可以编译生成 thesis.pdf：
+
+```bash
+make
+```
+
+### 持续编译
+
+编写学位论文往往是一个修改 -> 查看论文 PDF 显示效果 -> 继续修改的过程。因此我们实现了持续编译的支持。在文件被修改后，会自动进行新一轮的编译，产生新的 PDF 文件，在写论文时无需写完重新运行 `make`：
+
+```bash
+make pvc
+```
+
+### 清除所有生成文件
+
+使用以下指令可以清除之前所有的构建文件：
+
+```bash
+make clean
+```
+
+### 查看字数统计
+
+通过以下指令，可以查看目前的字数：
+
+```bash
+make wordcount
+```
+
+目前会统计两种字数：纯中文字数与总字数（英文单词 + 中文字）。其中纯中文字数只统计中文字，如英语单词，数字等都不予计入。总字数统计英文单词，以及中文字的总和，其中一个单词视为一个字。
 
 ## 反馈问题
 
